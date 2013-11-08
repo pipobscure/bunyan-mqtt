@@ -11,11 +11,11 @@ var mqtt = require('mqtt');
 function createStream(opts) {
   return Object.create(opts || {}, {
     write:{ value:write, enumerable:true, configurable:true, writable:true },
-    mqtt:{ value:opts.mqtt || mqtt.createClient(opts.host || 1883, opts.port || 'localhost'), enumerable:false, configurable:false, writable:false }
+    mqtt:{ value:opts.mqtt || mqtt.createClient(opts.host || 1883, opts.port || 'localhost', opts), enumerable:false, configurable:false, writable:false }
   });
 }
 
 function write(item) {
   /*jslint validthis:true */
-  this.mqtt.publish(this.topic || 'bunyan-mqtt', JSON.stringify(item));
+  this.mqtt.publish(this.topic || 'bunyan-mqtt', JSON.stringify(item), this);
 }
