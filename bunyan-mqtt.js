@@ -17,5 +17,5 @@ function createStream(opts) {
 
 function write(item) {
   /*jslint validthis:true */
-  this.mqtt.publish(this.topic || 'bunyan-mqtt', JSON.stringify(item), this);
+  this.mqtt.publish(this.topic || 'bunyan', JSON.stringify(item), this);
 }
