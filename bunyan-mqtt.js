@@ -9,9 +9,10 @@ exports = module.exports = createStream;
 var mqtt = require('mqtt');
 
 function createStream(opts) {
+  console.error(opts);
   return Object.create(opts || {}, {
     write:{ value:write, enumerable:true, configurable:true, writable:true },
-    mqtt:{ value:opts.mqtt || mqtt.createClient(opts.host || 1883, opts.port || 'localhost', opts), enumerable:false, configurable:false, writable:false }
+    mqtt:{ value:opts.mqtt || mqtt.createClient(opts.port || 1883, opts.host || 'localhost', opts), enumerable:false, configurable:false, writable:false }
   });
 }
 
