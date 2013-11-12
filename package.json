@@ -1,6 +1,6 @@
 {
   "name":"bunyan-mqtt",
-  "version":"0.1.0",
+  "version":"0.1.1",
   "description":"A bunyan raw stream to publish to mqtt",
   "author":{ "name":"Philipp Dunkel", "email":"pip@pipobscure.com", "url":"http://pipobscure.com" },
   "repository":{ "type":"git", "url":"https://github.com/pipobscure/bunyan-mqtt.git" },
