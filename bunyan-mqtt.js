@@ -31,5 +31,6 @@ function write(item) {
   /*jslint validthis:true */
   var topic = [ this.topic ];
   if (this.addLevel) topic.push(item.level || '100');
-  this.mqtt.publish(topic.join('/'), JSON.stringify(item), this);
+  topic = topic.join('/');
+  this.mqtt.publish(topic, JSON.stringify(item));
 }
