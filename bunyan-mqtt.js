@@ -10,6 +10,9 @@ var mqtt = require('mqtt');
 
 function createStream(opts) {
   opts.topic = opts.topic || 'bunyan';
+  opts.port = opts.port || 1883;
+  opts.host = opts.host || 'localhost';
+  opts.protocol = opts.protocol || 'mqtt';
   opts.addLevel = !!opts.addLevel;
   return Object.create(opts || {}, {
     write:{
@@ -19,7 +22,7 @@ function createStream(opts) {
       writable:true
     },
     mqtt:{
-      value:opts.mqtt || mqtt.createClient(opts.port || 1883, opts.host || 'localhost', opts),
+      value:opts.mqtt || mqtt.connect(opts),
       enumerable:false,
       configurable:false,
       writable:false
